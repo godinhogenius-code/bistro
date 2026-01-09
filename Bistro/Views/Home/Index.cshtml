@@ -1,0 +1,150 @@
+@model List<Bistro.Models.MenuItem>
+@{
+    ViewData["Title"] = "Home";
+}
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <!-- Floating Tropical Elements -->
+    <span class="floating-food coconut">🥥</span>
+    <span class="floating-food fish">🐠</span>
+    <span class="floating-food chili">🌶️</span>
+    <span class="floating-food prawn">🦐</span>
+
+    <div class="hero-container">
+        <div class="hero-content">
+            <p class="hero-konkani">"Dev borem korum"</p>
+            <div class="hero-badge">
+                <span>🌴</span> A Taste of Goa
+            </div>
+            <h1 class="hero-title">
+                Welcome to<br>
+                <span class="highlight">Aiden & Anaya's</span><br>
+                Bistro!
+            </h1>
+            <p class="hero-subtitle">Sun, Sea, Spice & Soul!</p>
+            <p class="hero-description">
+                Experience the vibrant flavors of Goa right here! From fiery Vindaloo to
+                refreshing Kokum Sarbat, every dish is a celebration of coastal paradise.
+            </p>
+            <div class="hero-buttons">
+                <a asp-controller="Home" asp-action="Menu" class="btn-primary">
+                    <i class="bi bi-book"></i> View Our Menu
+                </a>
+                <a href="tel:+15551234567" class="btn-secondary">
+                    <i class="bi bi-telephone"></i> Call Us
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-baba">
+            <!-- 3D Mascot Image - Replace with your own PNG -->
+            <img src="~/images/mascot.png" alt="Baba - Our Friendly Mascot" class="mascot-img"
+                 onerror="this.style.display='none'" />
+            <!-- Speech bubble -->
+            <div class="speech-bubble">
+                <span class="speech-text">Jevonn tayar asa!</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Categories Section -->
+<section class="categories-section section">
+    <div class="section-header">
+        <p class="section-konkani">"Jevonn suru koruya"</p>
+        <span class="section-badge">🌶️ Our Specialties</span>
+        <h2 class="section-title">Explore Our Menu</h2>
+        <p class="section-subtitle">Authentic Goan flavors for every taste!</p>
+    </div>
+
+    <div class="categories-grid">
+        <a asp-controller="Home" asp-action="Menu" asp-fragment="appetizers" class="category-card">
+            <span class="category-icon">🦐</span>
+            <h3 class="category-name">Appetizers</h3>
+            <p class="category-konkani">Jevonn Suru</p>
+            <p class="category-count">6 varieties</p>
+        </a>
+        <a asp-controller="Home" asp-action="Menu" asp-fragment="mains" class="category-card">
+            <span class="category-icon">🐠</span>
+            <h3 class="category-name">Mains</h3>
+            <p class="category-konkani">Mukhya Jevonn</p>
+            <p class="category-count">6 varieties</p>
+        </a>
+        <a asp-controller="Home" asp-action="Menu" asp-fragment="drinks" class="category-card">
+            <span class="category-icon">🥥</span>
+            <h3 class="category-name">Drinks</h3>
+            <p class="category-konkani">Piyevpa</p>
+            <p class="category-count">6 varieties</p>
+        </a>
+        <a asp-controller="Home" asp-action="Menu" asp-fragment="desserts" class="category-card">
+            <span class="category-icon">🍰</span>
+            <h3 class="category-name">Desserts</h3>
+            <p class="category-konkani">Goad Jevonn</p>
+            <p class="category-count">6 varieties</p>
+        </a>
+    </div>
+</section>
+
+<!-- Featured Items Section -->
+<section class="featured-section section">
+    <div class="section-header">
+        <p class="section-konkani">"Pet bhor kha!"</p>
+        <span class="section-badge">⭐ Baba's Picks</span>
+        <h2 class="section-title">Featured Dishes</h2>
+        <p class="section-subtitle">Our most loved Goan creations!</p>
+    </div>
+
+    <div class="menu-grid">
+        @{
+            var imageUrls = new Dictionary<string, string>
+            {
+                { "Fish Curry Rice", "https://images.pexels.com/photos/3926133/pexels-photo-3926133.jpeg?auto=compress&cs=tinysrgb&w=400" },
+                { "Pork Vindaloo", "https://images.pexels.com/photos/2679501/pexels-photo-2679501.jpeg?auto=compress&cs=tinysrgb&w=400" },
+                { "Prawn Balchão", "https://images.pexels.com/photos/725991/pexels-photo-725991.jpeg?auto=compress&cs=tinysrgb&w=400" },
+                { "Bebinca", "https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg?auto=compress&cs=tinysrgb&w=400" }
+            };
+        }
+        @foreach (var item in Model)
+        {
+            var imageUrl = imageUrls.ContainsKey(item.Name)
+                ? imageUrls[item.Name]
+                : "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=400";
+
+            <div class="menu-card">
+                <div class="menu-card-image">
+                    <img src="@imageUrl" alt="@item.Name" loading="lazy" />
+                    <span class="menu-card-badge">Popular</span>
+                    <span class="menu-card-emoji">@item.Emoji</span>
+                </div>
+                <div class="menu-card-content">
+                    <h3 class="menu-card-title">@item.Name</h3>
+                    <p class="menu-card-description">@item.Description</p>
+                    <div class="menu-card-footer">
+                        <span class="menu-card-price">$@item.Price.ToString("F2")</span>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div style="text-align: center; margin-top: 3rem;">
+        <a asp-controller="Home" asp-action="Menu" class="btn-primary">
+            See Full Menu <i class="bi bi-arrow-right"></i>
+        </a>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="cta-baba">
+        <img src="~/images/mascot-small.png" alt="Baba" class="cta-mascot-img"
+             onerror="this.style.display='none'" />
+    </div>
+    <p class="cta-konkani">"Yeo re, bos ani kha!"</p>
+    <h2 class="cta-title">Come, Sit & Eat!</h2>
+    <p class="cta-text">Experience the warmth of Goan hospitality. Every meal is served with love, spice, and a big Goan smile!</p>
+    <a href="tel:+15551234567" class="cta-button">
+        <i class="bi bi-telephone-fill"></i> Call (555) 123-4567
+    </a>
+</section>

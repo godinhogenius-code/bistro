@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Aiden & Anaya's Bistro</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥥</text></svg>">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="bistro-navbar">
+        <div class="container">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                <!-- Mini Baba for Navbar -->
+                <svg class="baba-mini" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Straw Hat -->
+                    <ellipse cx="50" cy="18" rx="35" ry="10" fill="#DEB887"/>
+                    <ellipse cx="50" cy="15" rx="22" ry="12" fill="#F4A460"/>
+                    <path d="M28 15 Q50 5 72 15" stroke="#CD853F" stroke-width="2" fill="none"/>
+                    <!-- Hat Band -->
+                    <rect x="30" y="22" width="40" height="5" fill="#E85D04" rx="1"/>
+                    <!-- Face -->
+                    <circle cx="50" cy="55" r="28" fill="#8B5A2B"/>
+                    <!-- Rosy Cheeks -->
+                    <circle cx="35" cy="60" r="6" fill="#CD5C5C" opacity="0.5"/>
+                    <circle cx="65" cy="60" r="6" fill="#CD5C5C" opacity="0.5"/>
+                    <!-- Eyes - Happy/Squinting -->
+                    <path d="M36 50 Q40 46 44 50" stroke="#1A1A1A" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <path d="M56 50 Q60 46 64 50" stroke="#1A1A1A" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <!-- Big Friendly Mustache -->
+                    <path d="M32 65 Q40 72 50 64 Q60 72 68 65" stroke="#1A1A1A" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    <!-- Big Warm Smile -->
+                    <path d="M38 72 Q50 85 62 72" stroke="#FFFFFF" stroke-width="3" fill="#D00000" stroke-linecap="round"/>
+                </svg>
+                <div class="brand-text">
+                    <span class="brand-names">Aiden & Anaya's</span>
+                    <span class="brand-bistro">BISTRO</span>
+                </div>
+            </a>
+
+            <button class="navbar-toggler" type="button" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="navbar-nav" id="navbarNav">
+                <li>
+                    <a class="nav-link" asp-controller="Home" asp-action="Index">
+                        <i class="bi bi-house-heart"></i> Home
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link menu-btn" asp-controller="Home" asp-action="Menu">
+                        <i class="bi bi-book"></i> Menu
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        @RenderBody()
+    </main>
+
+    <!-- Footer -->
+    <footer class="bistro-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <!-- Baba for Footer with Fishing Net -->
+                <svg viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Straw Hat -->
+                    <ellipse cx="50" cy="15" rx="32" ry="9" fill="#DEB887"/>
+                    <ellipse cx="50" cy="12" rx="20" ry="11" fill="#F4A460"/>
+                    <path d="M30 12 Q50 3 70 12" stroke="#CD853F" stroke-width="2" fill="none"/>
+                    <!-- Hat Band with Flower -->
+                    <rect x="32" y="18" width="36" height="5" fill="#E85D04" rx="1"/>
+                    <circle cx="58" cy="20" r="4" fill="#FAA307"/>
+                    <circle cx="58" cy="20" r="2" fill="#D00000"/>
+                    <!-- Face -->
+                    <circle cx="50" cy="48" r="24" fill="#8B5A2B"/>
+                    <!-- Rosy Cheeks -->
+                    <circle cx="36" cy="52" r="5" fill="#CD5C5C" opacity="0.5"/>
+                    <circle cx="64" cy="52" r="5" fill="#CD5C5C" opacity="0.5"/>
+                    <!-- Eyes - Happy Squinting -->
+                    <path d="M38 45 Q42 41 46 45" stroke="#1A1A1A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                    <path d="M54 45 Q58 41 62 45" stroke="#1A1A1A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                    <!-- Friendly Mustache -->
+                    <path d="M35 58 Q42 64 50 57 Q58 64 65 58" stroke="#1A1A1A" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <!-- Warm Smile -->
+                    <path d="M40 63 Q50 74 60 63" stroke="#FFFFFF" stroke-width="2" fill="#D00000" stroke-linecap="round"/>
+                    <!-- Floral Shirt Body -->
+                    <path d="M30 72 Q50 80 70 72 L75 125 Q50 130 25 125 Z" fill="#2D6A4F"/>
+                    <!-- Shirt Flowers -->
+                    <circle cx="38" cy="90" r="4" fill="#E85D04" opacity="0.8"/>
+                    <circle cx="55" cy="85" r="3" fill="#FAA307" opacity="0.8"/>
+                    <circle cx="62" cy="100" r="4" fill="#E85D04" opacity="0.8"/>
+                    <circle cx="40" cy="110" r="3" fill="#FAA307" opacity="0.8"/>
+                    <circle cx="58" cy="115" r="4" fill="#E85D04" opacity="0.8"/>
+                    <!-- Coconut in hand -->
+                    <ellipse cx="78" cy="105" rx="10" ry="12" fill="#8B4513"/>
+                    <ellipse cx="78" cy="100" rx="6" ry="3" fill="#228B22"/>
+                    <circle cx="75" cy="108" r="2" fill="#1A1A1A"/>
+                    <circle cx="81" cy="108" r="2" fill="#1A1A1A"/>
+                    <circle cx="78" cy="112" r="2" fill="#1A1A1A"/>
+                </svg>
+                <div class="footer-brand-text">
+                    <h3>Aiden & Anaya's Bistro</h3>
+                    <p class="footer-konkani">"Amchea ghorant tum sadanch welcome"</p>
+                    <p class="footer-translation">You're always welcome in our home</p>
+                    <p>Experience the vibrant flavors of Goa - where every meal is a celebration of sun, sea, and spice!</p>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-controller="Home" asp-action="Menu">Our Menu</a></li>
+                    <li><a href="#appetizers">Appetizers</a></li>
+                    <li><a href="#mains">Mains</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4 class="footer-heading">Hours</h4>
+                <ul class="footer-links">
+                    <li>Mon-Thu: 11am - 10pm</li>
+                    <li>Fri-Sat: 11am - 11pm</li>
+                    <li>Sunday: 12pm - 9pm</li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4 class="footer-heading">Contact Us</h4>
+                <div class="footer-contact">
+                    <p><i class="bi bi-geo-alt-fill"></i> 123 Goa Beach Lane</p>
+                    <p><i class="bi bi-telephone-fill"></i> (555) 123-4567</p>
+                    <p><i class="bi bi-envelope-fill"></i> hello@aabistro.com</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="bi bi-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; @DateTime.Now.Year Aiden & Anaya's Bistro. Made with ❤️ and lots of kokum!</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('navbarNav').classList.toggle('active');
+        }
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,1039 @@
+/* ===== AIDEN & ANAYA'S BISTRO - Nando's Inspired Goan Theme ===== */
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@500;700&display=swap');
+
+/* ===== CSS Custom Properties ===== */
+:root {
+    /* Colors - Nando's inspired */
+    --nandos-red: #E4002B;
+    --nandos-dark-red: #8B0000;
+    --nandos-yellow: #FFD100;
+    --nandos-orange: #FF6B35;
+    --nandos-green: #00A651;
+    --nandos-teal: #009B9E;
+    --nandos-black: #1A1A1A;
+    --nandos-white: #FFFFFF;
+    --nandos-cream: #F5F5F5;
+    --nandos-gray: #666666;
+
+    /* Typography */
+    --font-display: 'Alfa Slab One', serif;
+    --font-body: 'Poppins', sans-serif;
+    --font-accent: 'Caveat', cursive;
+
+    /* Shadows */
+    --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.12);
+    --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.1);
+
+    /* Transitions */
+    --smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== Reset & Base ===== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--nandos-cream);
+    color: var(--nandos-black);
+    line-height: 1.6;
+    overflow-x: hidden;
+    padding-top: 70px;
+}
+
+/* ===== Animations ===== */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Navbar - Nando's Style ===== */
+.bistro-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--nandos-white);
+    padding: 0.75rem 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bistro-navbar .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+.navbar-brand .baba-mini {
+    width: 50px;
+    height: 50px;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.brand-names {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--nandos-black);
+}
+
+.brand-bistro {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--nandos-red);
+    letter-spacing: 2px;
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-link {
+    font-weight: 600;
+    color: var(--nandos-black);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--nandos-red);
+}
+
+.nav-link.menu-btn {
+    background: var(--nandos-green);
+    color: var(--nandos-white) !important;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-link.menu-btn:hover {
+    background: #008040;
+}
+
+.navbar-toggler {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.navbar-toggler span {
+    width: 25px;
+    height: 3px;
+    background: var(--nandos-black);
+    border-radius: 2px;
+}
+
+/* ===== Hero Section - Nando's Banner Style ===== */
+.hero-section {
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(90deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 100%),
+        url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat;
+    overflow: hidden;
+}
+
+.hero-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 600px;
+    z-index: 2;
+}
+
+.hero-konkani {
+    font-family: var(--font-accent);
+    font-size: 1.5rem;
+    color: var(--nandos-yellow);
+    margin-bottom: 0.5rem;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: var(--nandos-red);
+    color: var(--nandos-white);
+    padding: 0.5rem 1rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--nandos-white);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+
+.hero-title .highlight {
+    color: var(--nandos-yellow);
+}
+
+.hero-subtitle {
+    font-family: var(--font-accent);
+    font-size: 2rem;
+    color: var(--nandos-yellow);
+    margin-bottom: 1rem;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: var(--nandos-white);
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--nandos-green);
+    color: var(--nandos-white);
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: #008040;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--nandos-white);
+    color: var(--nandos-black);
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s;
+    border: 2px solid var(--nandos-black);
+}
+
+.btn-secondary:hover {
+    background: var(--nandos-black);
+    color: var(--nandos-white);
+}
+
+.hero-baba {
+    z-index: 2;
+    position: relative;
+}
+
+.hero-baba .mascot-img {
+    width: 450px;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 40px rgba(0,0,0,0.4));
+    animation: float 4s ease-in-out infinite;
+}
+
+.hero-baba .speech-bubble {
+    position: absolute;
+    top: 10px;
+    right: -60px;
+    background: var(--nandos-white);
+    border: 3px solid var(--nandos-red);
+    border-radius: 20px;
+    padding: 0.75rem 1.25rem;
+    box-shadow: var(--shadow-medium);
+}
+
+.hero-baba .speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 30px;
+    border-width: 15px 10px 0;
+    border-style: solid;
+    border-color: var(--nandos-white) transparent transparent;
+}
+
+.hero-baba .speech-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 28px;
+    border-width: 18px 12px 0;
+    border-style: solid;
+    border-color: var(--nandos-red) transparent transparent;
+}
+
+.hero-baba .speech-text {
+    font-family: var(--font-accent);
+    font-size: 1.3rem;
+    color: var(--nandos-red);
+    white-space: nowrap;
+}
+
+/* Fallback SVG mascot */
+.hero-baba svg {
+    width: 400px;
+    filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Floating food items */
+.floating-food {
+    position: absolute;
+    font-size: 3rem;
+    opacity: 0.6;
+    animation: float 5s ease-in-out infinite;
+    z-index: 1;
+}
+
+.floating-food.coconut { top: 15%; left: 5%; animation-delay: 0s; }
+.floating-food.fish { top: 60%; left: 8%; animation-delay: 1s; }
+.floating-food.chili { top: 20%; right: 5%; animation-delay: 2s; }
+.floating-food.prawn { top: 70%; right: 8%; animation-delay: 3s; }
+
+/* ===== Section Styling ===== */
+.section {
+    padding: 4rem 2rem;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-konkani {
+    font-family: var(--font-accent);
+    font-size: 1.5rem;
+    color: var(--nandos-red);
+    margin-bottom: 0.5rem;
+}
+
+.section-badge {
+    display: inline-block;
+    background: var(--nandos-red);
+    color: var(--nandos-white);
+    padding: 0.4rem 1rem;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--nandos-black);
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--nandos-gray);
+}
+
+/* ===== Categories Section - Nando's Color Bands ===== */
+.categories-section {
+    background: var(--nandos-white);
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.category-card {
+    position: relative;
+    background: var(--nandos-white);
+    border-radius: 8px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--nandos-black);
+    transition: all 0.3s;
+    border: 2px solid transparent;
+    overflow: hidden;
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+}
+
+.category-card:nth-child(1)::before { background: var(--nandos-red); }
+.category-card:nth-child(2)::before { background: var(--nandos-yellow); }
+.category-card:nth-child(3)::before { background: var(--nandos-teal); }
+.category-card:nth-child(4)::before { background: var(--nandos-orange); }
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-card);
+    border-color: var(--nandos-black);
+}
+
+.category-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.category-name {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    margin-bottom: 0.25rem;
+}
+
+.category-konkani {
+    font-family: var(--font-accent);
+    font-size: 1.25rem;
+    color: var(--nandos-red);
+    margin-bottom: 0.5rem;
+}
+
+.category-count {
+    font-size: 0.85rem;
+    color: var(--nandos-gray);
+}
+
+/* ===== Featured Section with Color Band ===== */
+.featured-section {
+    background: var(--nandos-cream);
+    position: relative;
+}
+
+.featured-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(135deg, var(--nandos-yellow) 0%, #FFE066 100%);
+    z-index: 0;
+}
+
+.featured-section .section-header,
+.featured-section .menu-grid {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== Menu Grid & Cards - Nando's Style ===== */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.menu-card {
+    background: var(--nandos-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-card:hover {
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-4px);
+}
+
+.menu-card-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.menu-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.menu-card:hover .menu-card-image img {
+    transform: scale(1.05);
+}
+
+.menu-card-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--nandos-red);
+    color: var(--nandos-white);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.menu-card-spicy {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 1.5rem;
+}
+
+.menu-card-emoji {
+    position: absolute;
+    bottom: -15px;
+    right: 15px;
+    font-size: 3rem;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+
+.menu-card-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-card-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--nandos-black);
+    margin-bottom: 0.5rem;
+}
+
+.menu-card-description {
+    font-size: 0.9rem;
+    color: var(--nandos-gray);
+    flex-grow: 1;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.menu-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-card-price {
+    display: inline-block;
+    background: var(--nandos-black);
+    color: var(--nandos-white);
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+/* ===== Menu Page Hero ===== */
+.menu-hero {
+    background: linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 100%),
+        url('https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat;
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.menu-hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.menu-hero-konkani {
+    font-family: var(--font-accent);
+    font-size: 1.5rem;
+    color: var(--nandos-yellow);
+    margin-bottom: 0.5rem;
+}
+
+.menu-hero-title {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    color: var(--nandos-white);
+    margin-bottom: 0.5rem;
+}
+
+.menu-hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--nandos-white);
+    opacity: 0.9;
+}
+
+.menu-hero-baba {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.2;
+}
+
+/* ===== Category Tabs - Nando's Style ===== */
+.category-tabs-wrapper {
+    background: var(--nandos-white);
+    position: sticky;
+    top: 70px;
+    z-index: 100;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.category-tabs {
+    display: flex;
+    gap: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    overflow-x: auto;
+}
+
+.category-tab {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    color: var(--nandos-black);
+    font-weight: 600;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+}
+
+.category-tab:hover {
+    color: var(--nandos-red);
+}
+
+.category-tab.active {
+    background: var(--nandos-red);
+    color: var(--nandos-white);
+    border-bottom-color: var(--nandos-red);
+}
+
+.tab-emoji {
+    font-size: 1.2rem;
+}
+
+/* ===== Menu Sections with Color Bands ===== */
+.menu-section {
+    padding: 4rem 2rem;
+    position: relative;
+}
+
+.menu-section:nth-child(odd) {
+    background: var(--nandos-white);
+}
+
+.menu-section:nth-child(even) {
+    background: var(--nandos-cream);
+}
+
+/* Color band accents */
+.menu-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    z-index: 0;
+}
+
+#appetizers::before { background: linear-gradient(135deg, var(--nandos-yellow) 0%, #FFE066 100%); }
+#mains::before { background: linear-gradient(135deg, var(--nandos-red) 0%, #FF4444 100%); }
+#drinks::before { background: linear-gradient(135deg, var(--nandos-teal) 0%, #00C4C4 100%); }
+#desserts::before { background: linear-gradient(135deg, var(--nandos-orange) 0%, #FF8866 100%); }
+
+.menu-section > div {
+    position: relative;
+    z-index: 1;
+}
+
+.menu-section-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    background: var(--nandos-white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-soft);
+}
+
+.menu-section-icon {
+    font-size: 3rem;
+}
+
+.menu-section-info h2 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--nandos-black);
+    margin-bottom: 0.25rem;
+}
+
+.menu-section-konkani {
+    font-family: var(--font-accent);
+    font-size: 1.3rem;
+    color: var(--nandos-red);
+    margin-bottom: 0.25rem;
+}
+
+.konkani-subtitle {
+    font-family: var(--font-accent);
+    font-size: 1.5rem;
+    color: var(--nandos-teal);
+    font-weight: normal;
+}
+
+.menu-section-info p {
+    font-size: 1rem;
+    color: var(--nandos-gray);
+}
+
+/* ===== CTA Section - Nando's Style ===== */
+.cta-section {
+    background: var(--nandos-black);
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.cta-baba {
+    margin-bottom: 1.5rem;
+}
+
+.cta-baba .cta-mascot-img {
+    width: 150px;
+    height: auto;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+}
+
+.cta-baba svg {
+    width: 100px;
+    height: auto;
+}
+
+.cta-konkani {
+    font-family: var(--font-accent);
+    font-size: 1.5rem;
+    color: var(--nandos-yellow);
+    margin-bottom: 0.5rem;
+}
+
+.cta-title {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--nandos-white);
+    margin-bottom: 1rem;
+}
+
+.cta-text {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 2rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--nandos-green);
+    color: var(--nandos-white);
+    padding: 1rem 2.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+}
+
+.cta-button:hover {
+    background: #008040;
+    transform: translateY(-2px);
+}
+
+/* ===== Footer - Clean Nando's Style ===== */
+.bistro-footer {
+    background: var(--nandos-black);
+    color: var(--nandos-white);
+    padding: 4rem 2rem 2rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+}
+
+.footer-brand {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.footer-brand svg {
+    width: 80px;
+    flex-shrink: 0;
+}
+
+.footer-brand-text h3 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--nandos-white);
+    margin-bottom: 0.5rem;
+}
+
+.footer-konkani {
+    font-family: var(--font-accent);
+    font-size: 1.2rem;
+    color: var(--nandos-yellow);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.footer-translation {
+    font-size: 0.85rem;
+    font-style: italic;
+    opacity: 0.7;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.footer-brand-text p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+.footer-heading {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--nandos-white);
+    margin-bottom: 1.25rem;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--nandos-yellow);
+}
+
+.footer-contact p {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 0.75rem;
+}
+
+.footer-contact i {
+    color: var(--nandos-yellow);
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    color: var(--nandos-white);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+}
+
+.social-link:hover {
+    background: var(--nandos-red);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1024px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-baba { display: none; }
+    .hero-buttons { justify-content: center; }
+    .categories-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+    body { padding-top: 70px; }
+
+    .navbar-toggler { display: flex; }
+
+    .navbar-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--nandos-white);
+        flex-direction: column;
+        padding: 1rem;
+        gap: 0;
+        box-shadow: var(--shadow-medium);
+    }
+
+    .navbar-nav.active { display: flex; }
+
+    .navbar-nav li {
+        border-bottom: 1px solid #E0E0E0;
+    }
+
+    .navbar-nav li:last-child { border: none; }
+
+    .nav-link {
+        display: block;
+        padding: 1rem;
+    }
+
+    .hero-section { min-height: auto; padding: 3rem 0; }
+    .hero-title { font-size: 2.5rem; }
+
+    .categories-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .category-card { padding: 1.5rem 1rem; }
+
+    .menu-grid { grid-template-columns: 1fr; }
+
+    .category-tabs { gap: 0; padding: 0 1rem; }
+    .category-tab { padding: 0.75rem 1rem; font-size: 0.85rem; }
+
+    .footer-grid { grid-template-columns: 1fr; text-align: center; }
+    .footer-brand { flex-direction: column; align-items: center; }
+    .footer-social { justify-content: center; }
+
+    .floating-food { display: none; }
+}
+
+@media (max-width: 480px) {
+    .hero-title { font-size: 2rem; }
+    .hero-subtitle { font-size: 1.25rem; }
+    .section-title { font-size: 2rem; }
+
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-buttons { flex-direction: column; }
+    .categories-grid { grid-template-columns: 1fr; }
+}
